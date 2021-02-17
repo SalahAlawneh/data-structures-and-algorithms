@@ -52,7 +52,7 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  let regex = /(word)/g;
+  let regex = /(world)/g;
   return regex.test(input);
 };
 
