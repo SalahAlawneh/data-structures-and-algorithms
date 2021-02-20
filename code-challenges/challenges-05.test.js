@@ -25,13 +25,12 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
-  let newStarWarsArr = [];
-  starWarsArr.name.forEach(element => {
-    newStarWarsArr.push(element.sort(function(a,b) {
-      return a.length-b.length;
-    }))
-  });
-  return newStarArsArr;
+
+  starWarsArr.sort(function (a, b) {
+    return b.height - a.height;
+  })
+
+  return starWarsArr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,8 +72,8 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   for (let i = 0; i <= str.length; i++) {
-    result.push(str.slice(i,str.length))
-    
+    result.push(str.slice(i, str.length))
+
   }
   return result;
 };
@@ -88,7 +87,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  let arrayOfCar =arr.split("");
+  let arrayOfCar = arr.split("");
   return arrayOfCar;
 };
 
@@ -137,7 +136,7 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   for (let i = 0; i < recipe.ingredients.length; i++) {
-    result.push(recipe.ingredients[i].slice(recipe.ingredients[i].indexOf(' ',3) + 1, recipe.ingredients[i].length));
+    result.push(recipe.ingredients[i].slice(recipe.ingredients[i].indexOf(' ', 3) + 1, recipe.ingredients[i].length));
   }
   return result;
 };
