@@ -8,8 +8,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str) {
-  let arrayOfSeperatedWords = str.split("");
-  return arrayOfSeperatedWords.slice(-10);
+  return str.split("").slice(-10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,15 +20,7 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const typeNum = (arr) => {
-  let answerArray = []
-
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof (arr[i]) === "number") {
-      answerArray.push(arr[i])
-    }
-
-  }
-  return answerArray;
+  return arr.filter(e => typeof e === "number")
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,12 +31,10 @@ Write a function named containsAnd that, given an array of strings as input, use
 For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
-// const containsAnd = (arr) => {
-//   let answer = arr.filter(e => {
-//     return e === /(and)/g
-//   })
-//   console.log(answer);
-// };
+const containsAnd = (arr) => {
+  let regex = /(and)/;
+  return arr.filter(e => regex.test(e))
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -71,13 +60,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  let vowels = /[iaoue]/g;
-
-  return arr.filter(e => {
-    if (vowels.test(e)) {
-      return e;
-    };
-  });
+  let regex=/[eaoiu]/ig;
+  return arr.filter(e => e.match(regex));
 };
 
 
@@ -90,15 +74,9 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  const notInFirstArray = (forbiddenValues, arr) => {
-    let result = arr.filter(e => {
-      if (!forbiddenValues.includes(e)) {
-        return e;
-      }
-    });
-    return result;
-
-  };
+  return arr.filter(e => {
+    if (forbiddenValues.includes(e)) { return false } else { return true }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
